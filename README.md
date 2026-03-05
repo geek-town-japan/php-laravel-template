@@ -82,6 +82,10 @@ PHP 8.5 / Laravel 12.x / Neon(PostgreSQL) / Docker(DBコンテナのみ) / GitHu
 
     🔬 test: 新規登録機能のユニットテストを追加
 
+:construction_worker: ci: (環境構築に関わる追加や修正)
+
+    👷 ci: バージョン変更に伴う Dockerfile の修正
+
 ## アーキテクチャ・技術スタック
 
 - 言語: [PHP 8.5](https://www.php.net/)
