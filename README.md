@@ -39,9 +39,9 @@ PHP 8.5 / Laravel 12.x / Neon(PostgreSQL) / Docker(DBコンテナのみ) / GitHu
 
 ### ブランチの規則
 
-ブランチの一貫性と明確さを保つために、以下の規則を採用しています。
+ブランチの一貫性と明確さを保つために、以下の規則を採用
 
-※xxxはIssueの番号を指します。
+※xxxはIssueの番号を指す
 | ブランチ | 説明 |
 |---|---|
 | feat/issue-xxx | 機能追加等 |
@@ -53,7 +53,7 @@ PHP 8.5 / Laravel 12.x / Neon(PostgreSQL) / Docker(DBコンテナのみ) / GitHu
 
 ### コミットメッセージの規則
 
-コミットメッセージの一貫性と明確さを保つために、[Semantic Commit Message](https://sparkbox.com/foundry/semantic_commit_messages/) の規則を採用しています
+コミットメッセージの一貫性と明確さを保つために、[Semantic Commit Message](https://sparkbox.com/foundry/semantic_commit_messages/) の規則を採用
 
 :wrench: chore: (タスクファイルなどプロダクションに影響のない修正、実稼働のコードの変更は含めない)
 
@@ -89,7 +89,7 @@ PHP 8.5 / Laravel 12.x / Neon(PostgreSQL) / Docker(DBコンテナのみ) / GitHu
 
 - 言語: [PHP 8.5](https://www.php.net/)
 - フレームワーク: [Laravel 12](https://github.com/laravel/framework/releases/)
-- フロントエンド: [Blade テンプレート](https://laravel.com/docs/12.x/blade/)（React等のライブラリは使用しない）
+- フロントエンド: [Blade テンプレート](https://laravel.com/docs/12.x/blade/) (React等のライブラリは使用しない)
 - データベース: [Neon(PostgreSQL)](https://neon.com/)
 - 認証: [Laravel Socialite(Google / Discord)](https://laravel.com/docs/12.x/socialite/)
   - Discord は [Socialite Providers](https://socialiteproviders.com/Discord/) を使用
@@ -100,13 +100,13 @@ PHP 8.5 / Laravel 12.x / Neon(PostgreSQL) / Docker(DBコンテナのみ) / GitHu
 ## 開発環境
 
 - ツールチェーン管理: [Nix](https://nix.dev/manual/nix/2.28/)
-- コンテナ：DBコンテナ(PostgreSQL)のみ Docker で構築
-  - アプリコンテナは作成しないかも?(Nix で環境を管理するため)
+- コンテナ: DBコンテナ(PostgreSQL) のみ Docker で構築
+  - アプリコンテナは作成しないかも? (Nix で環境を管理するため)
     - 悩み中
-      - コンテナ内で完結するからいいけど、デプロイ先がVercelだから、Vercel CLIでコマンド叩く必要がありそうだから、デプロイのためのコンテナを作る必要がありそう
+      - コンテナ内で完結するからいいけど、デプロイ先が Vercel だから、Vercel CLI でコマンド叩く必要がありそうだから、デプロイのためのコンテナを作る必要がありそう
       - そうしたときに、問題起きないか
-      - Linter, Formatterもちゃんとマウント周りを設定しないと遅いかも
-      - Nixで管理するんだったら、結局汚さず環境用意できるからわざわざアプリコンテナ作らなくてもいいんじゃないか？っていう気がしてる
+      - Linter, Formatter もちゃんとマウント周りを設定しないと遅いかも
+      - Nix で管理するんだったら、結局汚さず環境用意できるからわざわざアプリコンテナ作らなくてもいいんじゃないか？っていう気がしてる
 
 ### Nix で管理するツール
 
@@ -129,7 +129,7 @@ PHP 8.5 / Laravel 12.x / Neon(PostgreSQL) / Docker(DBコンテナのみ) / GitHu
 
 - `.env.example` をリポジトリに含める
 - シークレットは GitHub Actions Secrets / Vercel Environment Variables で管理
-- AI エージェントによる `.env` 読み込みリスクに対して、`sops` 等による暗号化を検討（秘密鍵は別管理）
+- AI エージェントによる `.env` 読み込みリスクに対して、`sops` 等による暗号化を検討(秘密鍵は別管理)
 
 ---
 
@@ -137,16 +137,16 @@ PHP 8.5 / Laravel 12.x / Neon(PostgreSQL) / Docker(DBコンテナのみ) / GitHu
 
 - ホスティング: Vercel Hobby プラン([vercel-php](https://www.npmjs.com/package/vercel-php/) を使用)
   - [Laravel Example](https://github.com/contributte/vercel-examples/tree/master/php-lumen/)
-- データベース: Neon(自動バックアップあり、要確認)
+- データベース: Neon (自動バックアップあり、要確認)
 - 環境: ローカル / 開発 / ステージング / 本番(無料枠の制約によっては本番のみ)
 
-### CI/CD（GitHub Actions）
+### CI/CD (GitHub Actions)
 
-1. テスト実行(PHPUnit / Playwright)
+1. テスト実行 (PHPUnit / Playwright)
 2. Neon へのマイグレーション・シーダー実行
 3. Vercel へデプロイ
 
-> Vercel の実行時間制限（60秒）を超えていないか、テストで確認することを推奨
+> Vercel の実行時間制限(60秒)を超えていないか、テストで確認することを推奨
 
 ---
 
@@ -156,7 +156,7 @@ PHP 8.5 / Laravel 12.x / Neon(PostgreSQL) / Docker(DBコンテナのみ) / GitHu
 
 - 1 テーブル 1 ファイルで作成
 - カラムの追加・変更は既存ファイルを編集せず、新規ファイルを作成
-- ファイル名は変更内容がわかる命名にする（例：`create_users_table` / `add_provider_to_users_table`）
+- ファイル名は変更内容がわかる命名にする(例: `create_users_table` / `add_provider_to_users_table`)
 - `down()` メソッドを必ず実装し、ロールバックできる状態を保つ
 
 ### Seeder
@@ -171,8 +171,8 @@ PHP 8.5 / Laravel 12.x / Neon(PostgreSQL) / Docker(DBコンテナのみ) / GitHu
 
 | 種別 | ツール |
 |---|---|
-| 単体テスト(Unit Test) | PHPUnit |
-| 結合テスト(Feature Test) | PHPUnit |
+| 単体テスト (Unit Test) | PHPUnit |
+| 結合テスト (Feature Test) | PHPUnit |
 | 総合テスト > E2E テスト | Playwright |
 
 - Google / Discord 等の外部サービスはモック化(必要に応じてモックサーバーを用意)
@@ -191,8 +191,8 @@ PHP 8.5 / Laravel 12.x / Neon(PostgreSQL) / Docker(DBコンテナのみ) / GitHu
 
 ## 監視・運用
 
-- エラーモニタリング / ログ管理: Sentry(無料枠：エラー 5,000 件 / 月)
-- データベースバックアップ: Neon の自動バックアップを利用（詳細要確認）
+- エラーモニタリング / ログ管理: Sentry (無料枠: エラー 5,000 件 / 月)
+- データベースバックアップ: Neon の自動バックアップを利用(詳細要確認)
 - ※ Vercel はファイル書き込み不可のため、ログはすべて外部サービスへ送信
 
 ---
