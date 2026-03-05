@@ -1,10 +1,9 @@
 # php-laravel-template
 
 ## 概要
-Laravel + Nix + Vercel のスターターテンプレート
-PHP 8.5 / Laravel 12.x / Neon(PostgreSQL) / Docker(DBコンテナのみ) / GitHub Actions CI/CD / PHPUnit(単体・結合テスト) / Playwright(E2Eテスト) / Mago(Linter・Formatter)
 
----
+Laravel + Nix + Vercel のスターターテンプレート  
+PHP 8.5 / Laravel 12.x / Neon(PostgreSQL) / Docker(DBコンテナのみ) / GitHub Actions CI/CD / PHPUnit(単体・結合テスト) / Playwright(E2Eテスト) / Mago(Linter・Formatter)
 
 ## フォルダ構成
 
@@ -16,15 +15,11 @@ PHP 8.5 / Laravel 12.x / Neon(PostgreSQL) / Docker(DBコンテナのみ) / GitHu
 └── .gitignore
 ```
 
----
-
 ## プロジェクト管理
 
 - タスク管理: GitHub Projects / Issues
 - 開発フロー: [GitHub Flow](https://docs.github.com/ja/get-started/using-github/github-flow/)
 - PRテンプレート・Issueテンプレートの整備
-
----
 
 ## ブランチ戦略
 
@@ -36,6 +31,8 @@ PHP 8.5 / Laravel 12.x / Neon(PostgreSQL) / Docker(DBコンテナのみ) / GitHu
 
 
 - ブランチ保護: `develop` / `staging` / `main` へのマージはPR必須
+
+---
 
 ### ブランチの規則
 
@@ -50,6 +47,8 @@ PHP 8.5 / Laravel 12.x / Neon(PostgreSQL) / Docker(DBコンテナのみ) / GitHu
 | ci/issue-xxx | 環境構築に関わる追加や修正等 |
 | chore/issue-xxx | その他 |
 
+
+---
 
 ### コミットメッセージの規則
 
@@ -83,8 +82,6 @@ PHP 8.5 / Laravel 12.x / Neon(PostgreSQL) / Docker(DBコンテナのみ) / GitHu
 
     🔬 test: 新規登録機能のユニットテストを追加
 
----
-
 ## アーキテクチャ・技術スタック
 
 - 言語: [PHP 8.5](https://www.php.net/)
@@ -94,8 +91,6 @@ PHP 8.5 / Laravel 12.x / Neon(PostgreSQL) / Docker(DBコンテナのみ) / GitHu
 - 認証: [Laravel Socialite(Google / Discord)](https://laravel.com/docs/12.x/socialite/)
   - Discord は [Socialite Providers](https://socialiteproviders.com/Discord/) を使用
 - Linter / Formatter: [Mago](https://mago.carthage.software/)
-
----
 
 ## 開発環境
 
@@ -107,6 +102,8 @@ PHP 8.5 / Laravel 12.x / Neon(PostgreSQL) / Docker(DBコンテナのみ) / GitHu
       - そうしたときに、問題起きないか
       - Linter, Formatter もちゃんとマウント周りを設定しないと遅いかも
       - Nix で管理するんだったら、結局汚さず環境用意できるからわざわざアプリコンテナ作らなくてもいいんじゃないか？っていう気がしてる
+
+---
 
 ### Nix で管理するツール
 
@@ -125,13 +122,13 @@ PHP 8.5 / Laravel 12.x / Neon(PostgreSQL) / Docker(DBコンテナのみ) / GitHu
 | `direnv` | `.env` 自動読み込み |
 
 
+---
+
 ### 環境変数・シークレット管理
 
 - `.env.example` をリポジトリに含める
 - シークレットは GitHub Actions Secrets / Vercel Environment Variables で管理
 - AI エージェントによる `.env` 読み込みリスクに対して、`sops` 等による暗号化を検討(秘密鍵は別管理)
-
----
 
 ## インフラ・デプロイ
 
@@ -140,6 +137,8 @@ PHP 8.5 / Laravel 12.x / Neon(PostgreSQL) / Docker(DBコンテナのみ) / GitHu
 - データベース: Neon (自動バックアップあり、要確認)
 - 環境: ローカル / 開発 / ステージング / 本番(無料枠の制約によっては本番のみ)
 
+---
+
 ### CI/CD (GitHub Actions)
 
 1. テスト実行 (PHPUnit / Playwright)
@@ -147,8 +146,6 @@ PHP 8.5 / Laravel 12.x / Neon(PostgreSQL) / Docker(DBコンテナのみ) / GitHu
 3. Vercel へデプロイ
 
 > Vercel の実行時間制限(60秒)を超えていないか、テストで確認することを推奨
-
----
 
 ## Migration / Seeder 運用方針
 
@@ -159,13 +156,13 @@ PHP 8.5 / Laravel 12.x / Neon(PostgreSQL) / Docker(DBコンテナのみ) / GitHu
 - ファイル名は変更内容がわかる命名にする(例: `create_users_table` / `add_provider_to_users_table`)
 - `down()` メソッドを必ず実装し、ロールバックできる状態を保つ
 
+---
+
 ### Seeder
 
 - 環境別に `DevelopSeeder` / `StagingSeeder` / `ProductionSeeder` を用意
 - Seeder は必ず Factory 経由で実装し、Seeder 自体はシンプルに保つ
   - Factory 経由にすることで、テストでの再利用・状態バリデーションが容易になる
-
----
 
 ## テスト
 
@@ -175,10 +172,9 @@ PHP 8.5 / Laravel 12.x / Neon(PostgreSQL) / Docker(DBコンテナのみ) / GitHu
 | 結合テスト (Feature Test) | PHPUnit |
 | 総合テスト > E2E テスト | Playwright |
 
+
 - Google / Discord 等の外部サービスはモック化(必要に応じてモックサーバーを用意)
 - テストカバレッジの目標値を事前に設定する
-
----
 
 ## セキュリティ
 
@@ -187,15 +183,11 @@ PHP 8.5 / Laravel 12.x / Neon(PostgreSQL) / Docker(DBコンテナのみ) / GitHu
 - 認証・認可: ルートレベルで Middleware を適用し、適用漏れを防止
 - 脆弱性検知: Dependabot によるライブラリの自動検知
 
----
-
 ## 監視・運用
 
 - エラーモニタリング / ログ管理: Sentry (無料枠: エラー 5,000 件 / 月)
 - データベースバックアップ: Neon の自動バックアップを利用(詳細要確認)
 - ※ Vercel はファイル書き込み不可のため、ログはすべて外部サービスへ送信
-
----
 
 ## ドキュメント
 
