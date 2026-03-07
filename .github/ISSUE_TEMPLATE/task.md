@@ -1,8 +1,7 @@
 ---
 name: タスク
 about: 通常タスク用テンプレート
-title: "[タスク] xxx"
-labels: タスク
+title: ""
 ---
 
 ## 概要
@@ -52,5 +51,4 @@ labels: タスク
 - 親Issue: #42
 - 参考PR: #38
 - Figma: https://figma.com/xxx
-- [] ...
 -->
