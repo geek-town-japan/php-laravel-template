@@ -1,8 +1,8 @@
 ---
-name: 調査
+name: 調査・検証
 about: 解決策が不明な問題の調査・検証
 title: ""
-labels: 調査
+labels: 調査・検証
 ---
 
 ## 概要
