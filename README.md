@@ -236,3 +236,11 @@ npm run test:e2e:codegen http://localhost.com:8080
 ```
 
 ブラウザが起動すれば環境構築完了です。
+
+## Mailpit
+
+ローカルのメール確認ツール  
+Web UI で受信メールを確認できる
+
+- Web UI: http://localhost:19980
+- SMTP: `localhost:19925`
