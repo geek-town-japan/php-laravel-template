@@ -200,3 +200,17 @@ PHP 8.5 / Laravel 12.x / Neon(PostgreSQL) / Docker(DBコンテナのみ) / GitHu
 - 開発マニュアル
 - ER 図
 - アーキテクチャ構成図(作成検討中)
+
+## Mago
+PHPの静的解析・フォーマッターツール。
+
+### 設定方針
+
+| 項目 | 設定値 | 理由 |
+|------|--------|------|
+| Source code paths | `src` | Laravelのソースコード |
+| Dependency paths | `vendor` | Composerの依存パッケージ |
+| Paths to exclude | `storage,bootstrap/cache` | キャッシュ・ログ等の自動生成ファイル。`bootstrap/app.php` はエントリポイントなので解析対象に含める |
+| Formatter preset | Pint preset | LaravelプロジェクトのコーディングスタイルはLaravel Pintが標準 |
+| Analyzer plugins | なし | PSL・Flow-PHP・PSR-11はいずれも本プロジェクトで使用しないパッケージ |
+| Strictness | Strict | 新規プロジェクトのため最初から厳しい設定にし、技術的負債を防ぐ |
