@@ -30,6 +30,7 @@
         docker
         docker-compose
         mago
+        phpunit
       ];
     };
   };
