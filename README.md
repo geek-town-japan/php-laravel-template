@@ -201,6 +201,16 @@ PHP 8.5 / Laravel 12.x / Neon(PostgreSQL) / Docker(DBコンテナのみ) / GitHu
 - ER 図
 - アーキテクチャ構成図(作成検討中)
 
+## Docker Compose
+
+```sh
+docker compose up -d
+cp src/.env.example src/.env
+docker compose exec app composer install
+docker compose exec app php artisan key:generate
+docker compose exec app php artisan migrate
+```
+
 ## Mago
 PHPの静的解析・フォーマッターツール。
 
@@ -222,7 +232,7 @@ npm ci
 
 動作確認：
 ```bash
-npm run test:e2e:codegen https://example.com
+npm run test:e2e:codegen http://localhost.com:8080
 ```
 
 ブラウザが起動すれば環境構築完了です。

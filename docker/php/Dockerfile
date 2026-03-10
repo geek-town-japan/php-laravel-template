@@ -7,8 +7,13 @@ COPY --from=composer:2.9.5 /usr/bin/composer /usr/bin/composer
 
 RUN apk add --no-cache \
     postgresql-dev \
+    && apk add --no-cache --virtual .build-deps \
+        $PHPIZE_DEPS \
     && docker-php-ext-install \
-        pdo_pgsql
+        pdo_pgsql \
+    && pecl install redis \
+    && docker-php-ext-enable redis \
+    && apk del .build-deps
 
 COPY ./php.ini /usr/local/etc/php/php.ini
 
