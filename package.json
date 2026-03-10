@@ -1,0 +1,24 @@
+{
+  "name": "php-laravel-template",
+  "version": "1.0.0",
+  "description": "Laravel + Nix + Vercel のスターターテンプレート   PHP 8.5 / Laravel 12.x / Neon(PostgreSQL) / Docker(DBコンテナのみ) / GitHub Actions CI/CD / PHPUnit(単体・結合テスト) / Playwright(E2Eテスト) / Mago(Linter・Formatter)",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:e2e:codegen": "playwright codegen"
+  },
+  "repository": {
+    "type": "git",
+    "url": "dev-hayato-shiina:geek-town-japan/php-laravel-template.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.57.0"
+  }
+}

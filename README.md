@@ -214,3 +214,15 @@ PHPの静的解析・フォーマッターツール。
 | Formatter preset | Pint preset | LaravelプロジェクトのコーディングスタイルはLaravel Pintが標準 |
 | Analyzer plugins | なし | PSL・Flow-PHP・PSR-11はいずれも本プロジェクトで使用しないパッケージ |
 | Strictness | Strict | 新規プロジェクトのため最初から厳しい設定にし、技術的負債を防ぐ |
+
+## Playwright
+```bash
+npm ci
+```
+
+動作確認：
+```bash
+npm run test:e2e:codegen https://example.com
+```
+
+ブラウザが起動すれば環境構築完了です。
