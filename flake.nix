@@ -25,7 +25,7 @@
   in {
     devShells.${system}.default = pkgs.mkShell {
       # https://search.nixos.org/packages?channel=unstable
-      packages = with pkgs; [
+      buildInputs = with pkgs; [
         git
         docker
         docker-compose
@@ -33,6 +33,9 @@
         phpunit
         nodejs_25
         playwright-driver.browsers
+        php85
+        phpPackages.composer
+        lua-language-server
       ];
 
       env = {
