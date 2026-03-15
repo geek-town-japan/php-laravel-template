@@ -35,7 +35,6 @@
         playwright-driver.browsers
         php85
         phpPackages.composer
-        lua-language-server
       ];
 
       env = {
