@@ -9,4 +9,5 @@
     "editor.defaultFormatter": "jkillian.custom-local-formatters",
     "editor.formatOnSave": true
   }
+  "php.validate.executablePath": "php"
 }
