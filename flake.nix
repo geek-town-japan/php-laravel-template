@@ -40,8 +40,8 @@
       env = {
         PLAYWRIGHT_BROWSERS_PATH = "${pkgs.playwright-driver.browsers}";
         PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS = "true";
-        NVIM_APPNAME="nvim-laravel";
-        PHP_BINARY_PATH=${pkgs.php85};
+        NVIM_APPNAME = "nvim-laravel";
+        PHP_BINARY_PATH = "${pkgs.php85}";
       };
 
       shellHook = ''
