@@ -1,35 +1,39 @@
 # Welcome to Mago!
 # For full documentation, see https://mago.carthage.software/tools/overview
-php-version = "8.5.3"
+
+php-version = "8.5.3" # 解析対象のPHPバージョン
 
 [source]
-workspace = "."
-paths = ["src"]
-includes = ["src/vendor"]
-excludes = ["src/storage", "src/bootstrap/cache"]
+workspace = "." # プロジェクトルート
+paths = ["src"] # 解析対象ディレクトリ
+includes = ["src/vendor"] # 通常除外されるが明示的に含めるパス
+excludes = ["src/storage", "src/bootstrap/cache"] # 除外されるパス
 
+# Laravel公式フォーマッター Pint のスタイルに準拠したフォーマットを適用
 [formatter]
 preset = "pint"
 
+# Laravel と PHPUnit のコンテキストを認識した上でリントする
 [linter]
 integrations = ["laravel", "phpunit"]
 
 [linter.rules]
-ambiguous-function-call = { enabled = false }
-literal-named-argument = { enabled = false }
-halstead = { effort-threshold = 7000 }
+ambiguous-function-call = { enabled = false } # 曖昧な関数呼び出しの警告を無効化
+literal-named-argument = { enabled = false } # 名前付き引数にリテラルを使う際の警告を無効化
+halstead = { effort-threshold = 7000 } # Halstead複雑度の閾値を7000に設定
 
+# 静的解析
 [analyzer]
 plugins = []
-find-unused-definitions = true
-find-unused-expressions = true
-analyze-dead-code = false
-memoize-properties = true
-allow-possibly-undefined-array-keys = false
-check-throws = true
-check-missing-override = true
-find-unused-parameters = true
-strict-list-index-checks = true
-no-boolean-literal-comparison = false
-check-missing-type-hints = false
-register-super-globals = true
+find-unused-definitions = true # 未使用のクラス・関数・定数を検出
+find-unused-expressions = true # 副作用のない無意味な式を検出
+analyze-dead-code = false # デッドコード解析は無効（重い処理のため通常オフ）
+memoize-properties = true # プロパティ型のキャッシュで解析を高速化
+allow-possibly-undefined-array-keys = false # 未定義の可能性があるキーアクセスをエラーとして扱う
+check-throws = true # 宣言されていない例外のスローを検出
+check-missing-override = true # オーバーライドメソッドに #[Override] がなければ警告
+find-unused-parameters = true # 未使用の引数を検出
+strict-list-index-checks = true # リストのインデックスアクセスを厳格にチェック
+no-boolean-literal-comparison = false # === true のような比較は許容
+check-missing-type-hints = false # 型ヒント欠落の警告は無効（Laravel既存コードへの配慮）
+register-super-globals = true # $_GET, $_POST 等のスーパーグローバル変数を認識
