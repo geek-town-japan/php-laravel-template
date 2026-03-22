@@ -39,6 +39,7 @@ PHP 8.5 / Laravel 12.x / Neon(PostgreSQL) / Docker(DBコンテナのみ) / GitHu
 ブランチの一貫性と明確さを保つために、以下の規則を採用
 
 ※xxxはIssueの番号を指す
+
 | ブランチ | 説明 |
 |---|---|
 | feat/issue-xxx | 機能追加等 |
