@@ -1,0 +1,13 @@
+{
+  "customLocalFormatters.formatters": [
+    {
+      "command": "mago format --stdin-input",
+      "languages": ["php"],
+    },
+  ],
+  "[php]": {
+    "editor.defaultFormatter": "jkillian.custom-local-formatters",
+    "editor.formatOnSave": true,
+  },
+  "php.validate.executablePath": "./.direnv/bin/php",
+}

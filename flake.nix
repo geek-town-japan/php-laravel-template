@@ -25,7 +25,7 @@
   in {
     devShells.${system}.default = pkgs.mkShell {
       # https://search.nixos.org/packages?channel=unstable
-      packages = with pkgs; [
+      buildInputs = with pkgs; [
         git
         docker
         docker-compose
@@ -33,12 +33,21 @@
         phpunit
         nodejs_25
         playwright-driver.browsers
+        php85
+        phpPackages.composer
       ];
 
       env = {
         PLAYWRIGHT_BROWSERS_PATH = "${pkgs.playwright-driver.browsers}";
         PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS = "true";
+        NVIM_APPNAME = "nvim-laravel";
+        PHP_BINARY_PATH = "${pkgs.php85}";
       };
+
+      shellHook = ''
+        mkdir -p .direnv/bin
+        ln -sf $(which php) .direnv/bin/php
+      '';
     };
   };
 }
