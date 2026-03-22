@@ -3,10 +3,10 @@ services:
     build: ./docker/php
     volumes:
       - ./src:/data
-    entrypoint: >
-      sh -c "chown -R www-data:www-data /data/storage /data/bootstrap/cache
-             && chmod -R 775 /data/storage /data/bootstrap/cache
-             && php-fpm"
+    entrypoint: >-
+      sh -c "chown -R www-data:www-data /data/storage /data/bootstrap/cache &&
+             chmod -R 775 /data/storage /data/bootstrap/cache &&
+             php-fpm"
     depends_on:
       - db
       - redis
